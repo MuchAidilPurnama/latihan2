@@ -1,0 +1,280 @@
+<script setup>
+import { ref } from 'vue'
+
+let message = "Hello World"
+let rawHtml = "semuanya musingkeun" 
+let a = 10
+let b = 32
+let c = a + b
+
+function onInput(e) {
+  text.value = e.target.value
+}
+let id = 0
+
+let number = 1
+
+function removeTodo(todo) {
+  todos.value = todos.value.filter((t) => t !== todo)
+}
+const todoId = ref(1)
+const todoData = ref(null)
+
+async function fetchData() {
+  todoData.value = null
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/todos/${todoId.value}`
+  )
+  todoData.value = await res.json()
+}
+
+fetchData()
+
+// Split Reverse Message
+let mess = ref("Hai Vue JS");
+function balikkanPesan() {
+  mess.value = mess.value.split('').reverse().join('');
+}
+
+// pengulangan
+let todos = [
+  { teks: 'Belajar JavaScript' },
+  { teks: 'Belajar Vue' },
+  { teks: 'Buat proyek keren' }
+]
+
+// Input
+let pesan = ref("Hai Vue");
+
+  let siswa = [
+    { nama: 'Aidil', kelas : 'XII rpl 1', umur: '16', alamat: 'bandung'},
+    { nama: 'rahman', kelas : 'XII rpl 2', umur: '17', alamat: 'cibay'},
+    { nama: 'chandra', kelas : 'XII rpl 2', umur: '17', alamat: 'cimahi'},
+    { nama: 'dimas', kelas : 'XII rpl 1', umur: '16', alamat: 'ranca'},
+  ]
+
+</script>
+
+<template>
+  <table>
+  <div>
+    <span style="color: aqua;"><h1>{{ message }}</h1></span>
+    <li><span v-html ="rawHtml"></span></li>
+  </div>
+  bil 1 = {{ a }} <br>
+  bil 2 = {{ b }} <br>
+  hasil = {{ c }} <br>
+ 
+  <br>
+  <div>
+    <div>
+      <form @submit.prevent="addTodo">
+    <input v-model="newTodo">
+    <button>Add Todo</button>
+  </form>
+  </div>
+  </div>
+ 
+  <div>
+     <!-- Split Button -->
+  <p>{{ mess }}</p>
+  <button v-on:click="balikkanPesan">Balikkan Pesan</button>
+  </div>
+  <!-- For -->
+  <br> Pengulangan
+  <ol>
+    <li v-for="todo in todos">
+      {{ todo.teks }}
+    </li>
+  </ol>
+  </table>
+<br><br>
+  <table border="1" >
+  <tr>
+    <th>no</th>
+    <th>Nama</th>
+    <th>kelas</th>
+    <th>Umur</th>
+    <th>alamat</th>
+  </tr>
+
+   <tr v-for="data in siswa">
+    <td>{{ number++ }}</td>
+    <td>{{ data.nama }}</td>
+    <td>{{ data.kelas }}</td>
+    <td>{{ data.umur }}</td>
+    <td>{{ data.alamat }}</td>
+   </tr>
+  </table>
+
+</template>
+
+<style>
+.done {
+  text-decoration: line-through;
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
